@@ -31,7 +31,23 @@ SELECT tweet_id FROM Tweets
 WHERE LENGTH(content) > 15;
 
 1378. Replace Employee ID With The Unique Identifier
+      
+SELECT unique_id, name
+FROM Employees
+LEFT JOIN EmployeeUNI ON EmployeeUNI.id = Employees.id;
 
+1068. Product Sales Analysis I
 
+SELECT Product.product_name, Sales.year, Sales.price
+FROM Product
+JOIN Sales ON Sales.product_id = Product.product_id;
+
+1581. Customer Who Visited but Did Not Make Any Transactions
+      
+SELECT customer_id, COUNT(Visits.visit_id) as count_no_trans
+FROM Visits
+LEFT JOIN Transactions ON Visits.visit_id = Transactions.visit_id
+WHERE transaction_id IS NULL
+GROUP BY customer_id;
 
 
